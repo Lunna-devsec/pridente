@@ -1,5 +1,6 @@
 from pydantic import BaseModel
 from typing import List, Optional
+from tinydb import TinyDB, Query
 
 
 class Presidente(BaseModel):
@@ -39,3 +40,14 @@ class User(BaseModel):
 	saldo: float 
 	foto: Optional[str]
 
+
+
+
+def salvar(tabela: str, jason: dict):
+    db = TinyDB('tempdb.jason')
+    temp = db.table(tabela)
+    temp.insert(jason)
+
+
+def consultar(tabela, coluna, busca):
+    ...
