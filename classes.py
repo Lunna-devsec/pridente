@@ -43,12 +43,12 @@ class User(BaseModel):
 
 
 def salvar(tabela: str, jason: dict):
-    with TinyDB('tempdb.jason') as db:
+    with TinyDB('tempdb.json') as db:
         temp = db.table(tabela)
         temp.insert(jason)
     return 200
 
 def consultar(tabela: str, coluna: str, busca: str):
-    with TinyDB('tempdb.jason') as db:
+    with TinyDB('tempdb.json') as db:
         temp = db.table(tabela)
         return temp.search(Query()[coluna] == busca)
