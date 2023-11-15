@@ -1,11 +1,2 @@
-just because my baby dont cry
-
-
-# pridente
- eat it
-
-coisa nova
-
-
-iriri nada
-irirriri
+# Jogo dos presidentes
+um jogo completo no estilo NFT (sem ter nfts a principio)
