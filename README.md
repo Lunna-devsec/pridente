@@ -7,8 +7,5 @@ just because my baby dont cry
 coisa nova
 
 
-<<<<<<< Updated upstream
 iriri nada
-=======
 irirriri
->>>>>>> Stashed changes
