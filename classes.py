@@ -10,9 +10,9 @@ class Presidente(BaseModel):
 	vida: int 
 	energia_max: int = 100 
 	energia: int 
-	frases: List(str) 
+	frases: List[str]
 	rendimento: float 
-	tipo: List(str) 
+	tipo: List[str] 
 	vivo: bool = True
 	
 
@@ -27,7 +27,7 @@ class item(BaseModel):
 class gabinete(BaseModel):
 	bandeira: Optional[str] 
 	vagas: int 
-	cadeiras: Optional[List(str, str, str, str, str)]
+	cadeiras: Optional[List[str]]
 	rendimentos: float 
 
 
@@ -37,5 +37,5 @@ class User(BaseModel):
 	nome: str 
 	senha: str 
 	saldo: float 
-	foto: Optional(str)
+	foto: Optional[str]
 
