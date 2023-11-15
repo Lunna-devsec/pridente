@@ -14,12 +14,5 @@ def inicializar_db():
     print(resultado)
 
 
-db = TinyDB('db.json')
-
-pessoas = db.table('pessoas')
-pessoas.insert({'nome': 'lula', 'rendimento': 100})
-pessoas.insert({'nome': 'bolsonaro', 'rendimento': 120})
-pessoas.insert({'nome': 'dilma', 'rendimento': 60})
-pessoas.insert({'nome': 'Lua', 'rendimento': 1000})
 
 
