@@ -1,7 +1,7 @@
 from pydantic import BaseModel
 from typing import List, Optional
 from tinydb import TinyDB, Query
-aaaaaa
+
 
 class Presidente(BaseModel):
 	chave: str

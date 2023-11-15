@@ -12,6 +12,6 @@ def home():
 
 @rotas.post("/newuser")
 async def criar_usuario(usuario: User):
-    salvar('user', usuario)
+    salvar('user', usuario.dict())
     return usuario
 
