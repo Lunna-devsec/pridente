@@ -11,8 +11,7 @@ def home():
 
 @rotas.get("/inventario",tags=["User"])
 async def curiar(tabela: str, coluna: str, busca: str):
-    teste = consultar(tabela, coluna, busca)
-    return teste
+    return consultar(tabela, coluna, busca)
 
 @rotas.post("/newuser", tags=["User"])
 async def criar_usuario(usuario: User)
