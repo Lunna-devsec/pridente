@@ -1,5 +1,5 @@
 from fastapi import APIRouter, status
-from classes import Presidente, item, gabinete, User, salvar, consultar
+from classes import Presidente, item, gabinete, User, salvar, consultar, ver
 rotas = APIRouter()
 
 
@@ -9,14 +9,18 @@ rotas = APIRouter()
 def home():
     return 'Pesidentinhos'
 
-@rotas.get("/inventario",tags=["User"], summary="Consultar usuário(s)", description="Recebe 3 parametros do tipo string para realizar a consulta no banco de dados, chama a função de consulta e retorna os dados")
+@rotas.get("/inventario",tags=["User"], summary="Consultar usuários", description="Recebe 1 parametro do tipo string para realizar a consulta de todos os usuários cadastrados")
 async def curiar(tabela: str, coluna: str, busca: str):
     return consultar(tabela, coluna, busca)
 
-@rotas.post("/newuser", tags=["User"], summary="Cadastrar usuário")
+@rotas.get("/inventario",tags=["User"], summary="Consultar usuário", description="Recebe 3 parametros do tipo string para realizar a consulta de um único usuário no banco de dados, chama a função de consulta e retorna os dados")
+async def curiar(tabela: str, coluna: str, busca: str):
+    return consultar(tabela, coluna, busca)
+
+@rotas.post("/newuser", tags=["User"], summary="Cadastrar usuário", description="Recebe informações obrigatórias, no padrão da classe User, e cria um registro no banco de dados")
 async def criar_usuario(usuario: User):
     return salvar('user', usuario.dict())
 
-@rotas.delete("/inventario", tags=["User"], summary="Deletar usuário(s)", description="")
+@rotas.delete("/inventario", tags=["User"], summary="Deletar usuário(s)", description="Recebe os parametros de tabela, coluna e o que pesquisar, encontra no banco e faz a remoção")
 async def deletar_usuario(tabela: str, coluna: str, busca: str):
     return remover(tabela, coluna, busca)
