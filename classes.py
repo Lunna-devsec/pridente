@@ -46,9 +46,18 @@ def salvar(tabela: str, jason: dict):
     with TinyDB('tempdb.json') as db:
         temp = db.table(tabela)
         temp.insert(jason)
-    return 200
+    return True
 
 def consultar(tabela: str, coluna: str, busca: str):
     with TinyDB('tempdb.json') as db:
         temp = db.table(tabela)
         return temp.search(Query()[coluna] == busca)
+
+def remover(tabela: str, coluna: str, busca: str):
+	with TinyDB('tempdb.json') as db:
+		temp = db.table(tabela)
+		if consultar(tabela, coluna, busca):
+			temp.remove(Query()[coluna] == busca)
+			return True
+		else:
+			return False
