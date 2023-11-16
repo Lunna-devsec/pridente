@@ -5,7 +5,7 @@ rotas = APIRouter()
 
 #inventario(create, read, delete)
 
-@rotas.get('/', tags = ["Home"])
+@rotas.get('/', tags = ["Home"], description="por quenquanto num é nada não kkkkkkkkk")
 def home():
     return 'Pesidentinhos'
 
