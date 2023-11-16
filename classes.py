@@ -1,6 +1,9 @@
 from pydantic import BaseModel
 from typing import List, Optional
 from tinydb import TinyDB, Query
+from pandas import DataFrame as df
+import json
+
 
 
 class Presidente(BaseModel):
@@ -61,3 +64,11 @@ def remover(tabela: str, coluna: str, busca: str):
 			return True
 		else:
 			return False
+from tinydb import TinyDB
+
+def ver(tabela):
+
+    with TinyDB('tempdb.json') as db:
+        dados_lista = db.table(tabela).all()
+        print(json.dumps(dados_lista, indent=2))
+        return dados_lista
