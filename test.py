@@ -8,5 +8,5 @@ prototipo.include_router(rotas)
 
 
 
-uvicorn.run(prototipo, port = 7777, host = 'localhost')
+uvicorn.run(prototipo, port = 7777, host = 'localhost', reload = True)
 
