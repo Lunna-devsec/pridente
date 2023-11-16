@@ -9,7 +9,7 @@ rotas = APIRouter()
 def home():
     return 'Pesidentinhos'
 
-@rotas.get("/inventario",tags=["User"], summary="Consultar usuário(s)", description="")
+@rotas.get("/inventario",tags=["User"], summary="Consultar usuário(s)", description="Recebe 3 parametros do tipo string para realizar a consulta no banco de dados, chama a função de consulta e retorna os dados")
 async def curiar(tabela: str, coluna: str, busca: str):
     return consultar(tabela, coluna, busca)
 
@@ -17,5 +17,6 @@ async def curiar(tabela: str, coluna: str, busca: str):
 async def criar_usuario(usuario: User):
     return salvar('user', usuario.dict())
 
-@rotas.delete("/inventario")
-asyncn def 
+@rotas.delete("/inventario", tags=["User"], summary="Deletar usuário(s)", description="")
+async def deletar_usuario(tabela: str, coluna: str, busca: str):
+    return remover(tabela, coluna, busca)
