@@ -1,13 +1,14 @@
 from fastapi import APIRouter, status
-from classes import Presidente, item, gabinete, User, salvar, consultar, ver
+from classes import Presidente, item, gabinete, User, salvar, consultar, ver, html
 rotas = APIRouter()
+from fastapi.responses import HTMLResponse
 
 
 #inventario(create, read, delete)
 
 @rotas.get('/', tags = ["Home"], description="por quenquanto num é nada não kkkkkkkkk")
 def home():
-    return 'Pesidentinhos'
+    return HTMLResponse(content = html('home'))
 
 @rotas.get("/inventario",tags=["User"], summary="Consultar usuários", description="Recebe 1 parametro do tipo string para realizar a consulta de todos os usuários cadastrados")
 async def curiar(tabela: str, coluna: str, busca: str):

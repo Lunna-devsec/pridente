@@ -72,3 +72,9 @@ def ver(tabela):
         dados_lista = db.table(tabela).all()
         print(json.dumps(dados_lista, indent=2))
         return dados_lista
+
+
+def html(pagina):
+	if pagina == 'home':
+		with open('home.html', 'r') as home:
+			return home.read()
