@@ -6,7 +6,7 @@ from fastapi.responses import HTMLResponse
 
 #inventario(create, read, delete)
 
-@rotas.get('/', tags = ["Home"], description="por quenquanto num é nada não kkkkkkkkk")
+@rotas.get('/', tags = ["Home"], description="renderiza a pagina home")
 def home():
     return HTMLResponse(content = html('home'))
 
