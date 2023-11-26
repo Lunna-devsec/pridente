@@ -2,6 +2,7 @@ from pydantic import BaseModel
 from typing import List, Optional
 from tinydb import TinyDB, Query
 from pandas import DataFrame as df
+from datetime import datetime
 import json
 
 
@@ -11,12 +12,13 @@ class Presidente(BaseModel):
 	nome: str 
 	apelido: Optional[str] = None
 	vida_max: int = 50
-	vida: int 
+	vida: int = vida_max
 	energia_max: int = 100 
-	energia: int 
+	energia: int = energia_max
 	frases: List[str]
 	rendimento: float 
 	tipo: List[str] 
+	time: str = datetime.now().strftime("%H:%M:%S")
 	vivo: bool = True
 	
 
@@ -64,7 +66,16 @@ def remover(tabela: str, coluna: str, busca: str):
 			return True
 		else:
 			return False
-from tinydb import TinyDB
+
+
+def add_presidente():
+	novo = Presidente(nome = "presidente de teste", chave = "11212", frases = ["sou apenas um teste"], rendimento = 20, tipo = ['testador'])
+	novo = novo.dict()
+	
+	with TinyDB('testers.json') as teste:
+		temp = teste.table("presidente")
+		temp.insert(novo)
+	return True
 
 def ver(tabela):
 
