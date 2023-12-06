@@ -1,6 +1,7 @@
-from rotas import rotas
+
 from fastapi import FastAPI
 import uvicorn
+from rotas import rotas
 
 prototipo = FastAPI()
 prototipo.include_router(rotas)

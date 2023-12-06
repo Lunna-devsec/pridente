@@ -42,6 +42,8 @@ class User(BaseModel):
 	senha: str 
 	saldo: float 
 	#foto: Optional[str]
+	class Config():
+		from_orm = True
 
 
 
