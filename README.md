@@ -1,8 +1,12 @@
 # Jogo dos presidentes
 um jogo completo no estilo NFT (sem ter nfts a principio)
 
+
+
+
 db browser
 sqlviewer
+
 fly.io
 vercel
 github action
@@ -53,3 +57,4 @@ controles
     - recarga
       - recarrega o jogo tirando a energia de todos os presidentes
       - recarrega o jogo colocando dinheiro nos usuarios
+controles
