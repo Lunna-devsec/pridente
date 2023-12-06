@@ -53,4 +53,3 @@ controles
     - recarga
       - recarrega o jogo tirando a energia de todos os presidentes
       - recarrega o jogo colocando dinheiro nos usuarios
-    

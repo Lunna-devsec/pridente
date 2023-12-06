@@ -2,8 +2,9 @@ from fastapi import APIRouter, status
 from classes import Presidente, item, gabinete, User, salvar, consultar, ver, html
 rotas = APIRouter()
 from fastapi.responses import HTMLResponse
+from modelos import criar_banco
 
-
+criar_banco()
 #inventario(create, read, delete)
 
 @rotas.get('/', tags = ["Home"], description="renderiza a pagina home")

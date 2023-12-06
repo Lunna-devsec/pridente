@@ -41,7 +41,7 @@ class User(BaseModel):
 	nome: str 
 	senha: str 
 	saldo: float 
-	foto: Optional[str]
+	#foto: Optional[str]
 
 
 
