@@ -1,14 +1,28 @@
-<main>
-    <section id="mercado"></section>
-    <section>
-        <span id="rendimento"></span>
-        <section>
-            <div class="cards"></div>
-            <div class="cards"></div>
-            <div class="cards"></div>
-            <div class="cards"></div>
-            <div class="cards"></div>
+{% extends 'main.html' %}
+
+
+{% block home %}
+
+<style>
+    #mercado a {
+        display: block; /* Para tornar o link de bloco, cobrindo toda a área da seção */
+        background-color: blue;
+        width: 30vw;
+        height: 80vh;
+        text-decoration: none; /* Remover a decoração de texto padrão (sublinhado) */
+    }
+</style>
+
+
+    <main>
+        <section id="mercado">
+            <a href="{{ mercado }}">
+            </a>
+
         </section>
-    </section>
-    <section id="loja"></section>
-</main>
+            {% include 'gabinete.html' %}
+        <section id="loja">
+
+        </section>
+    </main>
+{% endblock %}
