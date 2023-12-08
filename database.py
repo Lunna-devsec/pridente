@@ -57,11 +57,21 @@ def listar_usuarios():
         resultado = cursor.fetchall()
     return resultado
 
+def lista_user(nome: str):
+    usuario = f"""SELECT * FROM user
+                    WHERE nome = '{nome}';"""
+
+    with sqlite3.connect(DB_FILE) as connection:
+        cursor = connection.cursor()
+
+        cursor.execute(usuario)
+        resultado = cursor.fetchall()
+    return resultado
+
 def update_saldo(valor: float, user: str):
     atualizacao = f"""UPDATE user
                     SET saldo = {valor}
-                    WHERE nome = {user}"""
-
+                    WHERE nome = '{user}';"""
 
     with sqlite3.connect(DB_FILE) as connection:
         cursor = connection.cursor()
