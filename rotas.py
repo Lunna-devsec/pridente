@@ -8,10 +8,6 @@ from fastapi.responses import HTMLResponse
 
 #inventario(create, read, delete)
 
-@rotas.get('/', tags = ["Home"], description="renderiza a pagina home")
-def home():
-    return HTMLResponse(content = html('home'))
-
 #@rotas.get("/teste")
 #async def criar_user():
 #    teste = [1,2,3]
@@ -35,7 +31,7 @@ async def deletar_usuario(nome: str):
     db.deletar_user(nome)
     return {"mensagem": "deletado"}
 
-@rotas.patch("/profile/{nome}", tags=["User"], summary="Atualizar saldo",)
+@rotas.patch("/profile/{nome}", tags=["User"], summary="Atualizar saldo", description="Recebe o user que terá o saldo alterado, juntamente com o novo valor do saldo")
 async def atualizar_saldo(saldo: int, nome: str):
     db.update_saldo(saldo, nome)
     return {"mensagem": "saldo atualizado"}

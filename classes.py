@@ -1,6 +1,5 @@
 from pydantic import BaseModel
 from typing import List, Optional
-from tinydb import TinyDB, Query
 from pandas import DataFrame as df
 import json
 
@@ -41,24 +40,3 @@ class User(BaseModel):
 	senha: str 
 	saldo: float
 	#foto: Optional[str]
-
-
-
-
-
-def remover(tabela: str, coluna: str, busca: str):
-	with TinyDB('tempdb.json') as db:
-		temp = db.table(tabela)
-		if consultar(tabela, coluna, busca):
-			temp.remove(Query()[coluna] == busca)
-			return True
-		else:
-			return False
-from tinydb import TinyDB
-
-def ver(tabela):
-
-    with TinyDB('tempdb.json') as db:
-        dados_lista = db.table(tabela).all()
-        print(json.dumps(dados_lista, indent=2))
-        return dados_lista

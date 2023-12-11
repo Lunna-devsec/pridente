@@ -9,8 +9,12 @@ github action
 shell script
 controles
 
-
-
+##################
+Rota update saldo#
+Rota delete#######
+Rota select##########################################
+Ambas que recebem o indentificador e executa oq deve#
+#####################################################
 ## roadmap:
 
 

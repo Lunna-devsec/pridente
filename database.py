@@ -19,7 +19,7 @@ tb_presidente = '''CREATE TABLE IF NOT EXISTS presidente(
                         );'''
 
 tb_user = '''CREATE TABLE IF NOT EXISTS user(
-                        id INTEGER UNIQUE,
+                        id INTEGER PRIMARY KEY AUTOINCREMENT,
                         nome TEXT PRIMARY KEY, 
                         senha TEXT,
                         saldo INTEGER
