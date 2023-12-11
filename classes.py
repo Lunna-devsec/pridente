@@ -8,7 +8,7 @@ import json
 
 class Presidente(BaseModel):
 	chave: str
-	nome: str 
+	nome: str
 	apelido: Optional[str] = None
 	vida_max: int = 50
 	vida: int 
@@ -18,7 +18,6 @@ class Presidente(BaseModel):
 	rendimento: float 
 	tipo: List[str] 
 	vivo: bool = True
-	
 
 class item(BaseModel):
 	nome: str 
@@ -30,33 +29,22 @@ class item(BaseModel):
 
 class gabinete(BaseModel):
 	bandeira: Optional[str] 
-	vagas: int 
-	cadeiras: Optional[List[str]]
-	rendimentos: float 
+	vagas: int
+	rendimentos: float
+
+
 
 
 
 class User(BaseModel):
-	id: int 
-	nome: str 
+	nome: str
 	senha: str 
-	saldo: float 
+	saldo: float
 	#foto: Optional[str]
-	class Config():
-		from_orm = True
 
 
 
-def salvar(tabela: str, jason: dict):
-    with TinyDB('tempdb.json') as db:
-        temp = db.table(tabela)
-        temp.insert(jason)
-    return True
 
-def consultar(tabela: str, coluna: str, busca: str):
-    with TinyDB('tempdb.json') as db:
-        temp = db.table(tabela)
-        return temp.search(Query()[coluna] == busca)
 
 def remover(tabela: str, coluna: str, busca: str):
 	with TinyDB('tempdb.json') as db:
@@ -74,9 +62,3 @@ def ver(tabela):
         dados_lista = db.table(tabela).all()
         print(json.dumps(dados_lista, indent=2))
         return dados_lista
-
-
-def html(pagina):
-	if pagina == 'home':
-		with open('home.html', 'r') as home:
-			return home.read()
