@@ -1,21 +1,13 @@
 from fastapi import APIRouter, status, Depends
-from classes import Presidente, item, gabinete, User, html
+from classes import Presidente, item, gabinete, User
 import classes
 import database as db
 
 rotas = APIRouter()
 from fastapi.responses import HTMLResponse
 
-#inventario(create, read, delete)
 
-@rotas.get('/', tags = ["Home"], description="renderiza a pagina home")
-def home():
-    return HTMLResponse(content = html('home'))
 
-#@rotas.get("/teste")
-#async def criar_user():
-#    teste = [1,2,3]
-#    return teste
 
 @rotas.get("/users",tags=["User"], summary="Consultar usuários", description="Realiza a consulta de todos os usuários cadastrados")
 async def curiar():
