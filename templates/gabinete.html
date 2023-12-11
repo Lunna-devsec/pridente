@@ -1,0 +1,10 @@
+
+        
+        {% block gabinete %}
+        <section>
+            <span id="rendimento">{{rendimento}}</span>
+                {% for card in cards_data %}
+                    {% include 'card.html' %}
+                {% endfor %}
+        </section>
+        {% endblock %}

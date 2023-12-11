@@ -1,0 +1,32 @@
+{% extends 'main.html' %}
+
+
+{% block home %}
+
+<style>
+    #mercado a {
+        display: block; /* Para tornar o link de bloco, cobrindo toda a área da seção */
+        background-color: blue;
+        width: 30vw;
+        height: 80vh;
+        text-decoration: none; /* Remover a decoração de texto padrão (sublinhado) */
+    }
+</style>
+
+
+    <main>
+        <section id="mercado">
+            <a href="{{ mercado }}">
+            </a>
+
+        </section>
+            {% include 'gabinete.html' %}
+        <section id="loja">
+
+        </section>
+    </main>
+
+    
+
+{% include 'footer.html' %}
+{% endblock %}
