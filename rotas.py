@@ -1,18 +1,41 @@
-from fastapi import APIRouter, status, Depends, Request
-#from classes import Presidente, item, gabinete, User, salvar, consultar, ver, html
+from fastapi import APIRouter, status, Depends
+from classes import Presidente, item, gabinete, User, html
 import classes
-
-
-from fastapi.templating import Jinja2Templates
-from fastapi.responses import HTMLResponse
-
-
-templates = Jinja2Templates(directory="templates")
+import database as db
 
 rotas = APIRouter()
+from fastapi.responses import HTMLResponse
 
+#inventario(create, read, delete)
 
-@rotas.get('/teste/{num}', response_class=HTMLResponse)
-def testes(request : Request, num : int):
-    if num == 0:
-        return templates.TemplateResponse('main.html', {"request": request, "mensagem": 'funcionaaaa'})
+@rotas.get('/', tags = ["Home"], description="renderiza a pagina home")
+def home():
+    return HTMLResponse(content = html('home'))
+
+#@rotas.get("/teste")
+#async def criar_user():
+#    teste = [1,2,3]
+#    return teste
+
+@rotas.get("/users",tags=["User"], summary="Consultar usuários", description="Realiza a consulta de todos os usuários cadastrados")
+async def curiar():
+    return db.listar_usuarios()
+
+@rotas.get("/profile/{nome}",tags=["User"], summary="Consultar usuário", description="Realiza a consulta de um único usuário no banco de dados, com base no bone de usuário fornecido")
+async def curiar(nome: str):
+    return db.lista_user(nome)
+
+@rotas.post("/newuser", tags=["User"], summary="Cadastrar usuário", description="Recebe informações obrigatórias, no padrão da classe User, e cria um registro no banco de dados")
+async def criar_usuario(usuario: User):
+    db.criar_user(usuario)
+    return {"mensagem": "criado"}
+
+@rotas.delete("/profile/{nome}", tags=["User"], summary="Deletar usuário", description="Recebe os parametros de tabela, coluna e o que pesquisar, encontra no banco e faz a remoção")
+async def deletar_usuario(nome: str):
+    db.deletar_user(nome)
+    return {"mensagem": "deletado"}
+
+@rotas.patch("/profile/{nome}", tags=["User"], summary="Atualizar saldo",)
+async def atualizar_saldo(saldo: int, nome: str):
+    db.update_saldo(saldo, nome)
+    return {"mensagem": "saldo atualizado"}
