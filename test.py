@@ -3,10 +3,12 @@ from fastapi import FastAPI
 import uvicorn
 from rotas import rotas
 from view import html
+import database as db
 
 prototipo = FastAPI()
 prototipo.include_router(rotas)
 prototipo.include_router(html)
+db.criacao_tabelas()
 
 
 
