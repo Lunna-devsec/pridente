@@ -8,15 +8,8 @@ import json
 class Presidente(BaseModel):
 	chave: str
 	nome: str
-	apelido: Optional[str] = None
-	vida_max: int = 50
-	vida: int 
-	energia_max: int = 100 
-	energia: int 
-	frases: List[str]
 	rendimento: float 
-	tipo: List[str] 
-	vivo: bool = True
+	tipo: List[str]
 
 class item(BaseModel):
 	nome: str 
@@ -30,9 +23,7 @@ class gabinete(BaseModel):
 	bandeira: Optional[str] 
 	vagas: int
 	rendimentos: float
-
-
-
+	level: int
 
 
 class User(BaseModel):

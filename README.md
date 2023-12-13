@@ -13,12 +13,7 @@ github action
 shell script
 controles
 
-##################
-Rota update saldo#
-Rota delete#######
-Rota select##########################################
-Ambas que recebem o indentificador e executa oq deve#
-#####################################################
+
 ## roadmap:
 
 
@@ -27,11 +22,11 @@ Ambas que recebem o indentificador e executa oq deve#
 ### funcionalidades:
 - dados
   - salvar os dados
-    - dos usuarios
+    - [dos usuarios]
     - dos presidentes de cada usuario
-    - dos presidentes no mercado
     - dos presidentes no gabinete de cada usuario
     - do gabinete de cada usuario
+    - dos presidentes no mercado
   - deletar os dados
     - de presidentes mortos
     - de presidentes que não estão mais no mercado

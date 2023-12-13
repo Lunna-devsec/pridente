@@ -7,7 +7,7 @@ rotas = APIRouter()
 from fastapi.responses import HTMLResponse
 
 #inventario(create, read, delete)
-db.criacao_tabelas()
+
 #@rotas.get("/teste")
 #async def criar_user():
 #    teste = [1,2,3]
