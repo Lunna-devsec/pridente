@@ -10,12 +10,12 @@ templates = Jinja2Templates(directory="templates")
 html = APIRouter()
 
 
-@html.get('/teste/{num}', response_class=HTMLResponse)
+@html.get('/teste/{num}', response_class=HTMLResponse, tags=['HTML frontend'])
 def testes(request : Request, num : int):
     if num == 0:
         return templates.TemplateResponse('main.html', {"request": request, "mensagem": 'funcionaaaa'})
 
-@html.get('/', response_class=HTMLResponse)
+@html.get('/', response_class=HTMLResponse, tags=['HTML frontend'])
 async def home(request : Request):
 
         # Exemplo de dados em Python
@@ -28,6 +28,6 @@ async def home(request : Request):
     ]
     return templates.TemplateResponse('home.html', {"request": request, "cards_data": cards_data, 'rendimento': 2000, "mercado": caminhos["mercado"]})
 
-@html.get('/mercado', response_class=HTMLResponse)
+@html.get('/mercado', response_class=HTMLResponse, tags=['HTML frontend'])
 async def mercado(request):
     return templates.TemplateResponse('mercado.html', {"request": request})
