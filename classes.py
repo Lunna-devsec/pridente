@@ -39,7 +39,7 @@ class User(BaseModel):
 
 
 
-class gerar():
+class gerar:
 	maxrarity = 15
 	valor_base = 10
 	rendimento_inicial = 5
