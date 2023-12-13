@@ -47,15 +47,14 @@ class gerar:
 
 	@classmethod
 	def raridade(cls, lvl):
-		multi = 0
-		for _ in range(lvl-1): multi += rand()
-		gotcha = rint(1, 100) * (multi + (lvl / 2))
+		gotcha= rint(1, 100) * (sum(rand() for _ in range(lvl - 1)) + lvl / 2)
+		
 		raridade = 1
 		limite = 80
 		while gotcha > limite:
-			if raridade == cls.maxrarity: break
+			if raridade == cls.maxrarity:break
 			raridade += 1
-			limite = 80 + (80 - 800) * (raridade / cls.maxrarity) ** 2
+			limite = 80 + (800 - 80) * (raridade / cls.maxrarity) ** 2
 		return raridade
 	
 	@classmethod
@@ -68,6 +67,9 @@ class gerar:
 		min = raridade - 1
 		min = cls.rendimento_inicial if min == 0 else multiplyer(min)
 		max = multiplyer(raridade)
+		min = int(min)
+		max = int(max)
+
 		return rint(min, max)
 	
 	@classmethod

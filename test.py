@@ -3,6 +3,7 @@ from fastapi import FastAPI
 import uvicorn
 from rotas import rotas
 from view import html
+from classes import gerar
 
 prototipo = FastAPI()
 prototipo.include_router(rotas)
