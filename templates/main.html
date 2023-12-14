@@ -4,9 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>funcionou</title>
-
-
-    {% block cssstart %} {% endblock %}
+    
+    <style>
+        * {
+            padding: 0px;
+            margin: 0px;
+        }
+        header {
+            height: 8vh;
+            width: 100%;
+            background-color: green;
+        }
+        main {
+            background-color: rgb(200, 247, 247);
+            height: 86vh;
+            width: 100%;
+        }
+        footer {
+            background-color: green;
+            height: 20vh;
+            width: 100%;
+        }
+    </style>
+    {% block css_start %} {% endblock %}
+    
 </head>
 <body>
     {% block home %}{% endblock %}

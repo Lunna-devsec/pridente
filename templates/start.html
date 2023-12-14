@@ -1,27 +1,130 @@
 {% extends 'main.html' %}
 
-{% block cssstart %}
-<style>
-    main{
-        background-image: url("esquerda-e-direita.jpg") !important
-    }
-</style>
-{%endblock %}
+{% block css_start %}
+
+
+    <style>
+        p, li{
+            font-size: 1.35vw;
+        }
+        h3 {
+            font-size: 2.2vw;
+        }
+        h4 {
+            font-size: 1.6vw;
+        }
+        #esquerda {
+            background-color: red;
+        }
+
+        #direita {
+            background-color: blue;
+        }
+
+        main section {
+            background-color: rgba(224, 64, 245, 0.486);
+            height: 100%;
+            width: 20vw;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .center{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            width: 55vw;
+            width: calc(55vw - (16px*2));
+            padding-left: 16px;
+            padding-right: 16px;
+        }
+
+        main #direita p , main #esquerda p{
+            font-size: calc(2vh + 3vw);
+        }
+        main{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 110vh;
+
+        }
+        .content{
+            height: auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+        }
+        #video{
+            width: 80%;
+            height: 50vh;
+            background-color: rgb(250, 22, 22);
+        }
+        header.start{
+            height: 5vh;
+        }
+        details{
+            border: 4px rgb(247, 219, 250) solid;
+            padding: 6px;
+        }
+        summary {
+            background-color: rgb(247, 219, 250);
+
+        }
+        ul { 
+            margin-left: 5vw;
+        }
+
+    </style>
+
+{% endblock %}
+
 
 {% block start %}
 
-<header>
+<header class="start">
     <section id="login">
         <a href="login.html">login/sigin</a>
     </section>
 </header>
 <main>
-    <img src="" alt="">
-    <section class="center">
-        <div id="video"></div>
-        <article class="content"></article>
+    
+    <section id="esquerda">
+        <p>Esquerda</p>
     </section>
-    <img src="" alt="">
+
+    <section class="center">
+        <div id="video">
+            Video 
+        </div>
+        <article class="content">
+            <h3>Presidentinhos</h3>
+            <h4>about</h4>
+            <p>este é o projeto de um jogo feito por apenas duas estudantes de programação.</p>
+            <details>
+                <summary>motivação</summary>
+                <p>quando pensamos na politica do brasil podemos perceber que existe
+                    um grupo grande de pessoas que considera os politicos como bichinhos de estimação, você nunca
+                    deve criticar seu politico, apontar os erros, falhas e crimes ou questionar sua orientação politica e ideologia
+                    então pensando nisso criamos esse jogo como uma satira e tambem uma interação diferente com seus politicos favoritinhos
+                </p>
+            </details>
+            <ul>
+                <li>compre seus politicos, monte um bom gabinete e desvie drex para continuar esse tycoon de politicos brasileiro</li>
+                <li>todos seus presidentes serão unicos e com stats unicos gerados de forma totalmente equilibrada e organica</li>
+                <li>vamos fazer um dinheiro extra! coloque seus dedos no governo e fique rico!!!</li>
+            </ul>
+            <p style="font-size: 1.7vw; font-weight: bolder;">finalmente os politicos brasileiros serivirão de alguma coisa kkkkk</p>
+        </article>
+    </section>
+
+    <section id="direita">
+        <p>Direita</p>
+    </section>
 </main>
+
+{% include "footer.html" %}
 
 {% endblock %}
