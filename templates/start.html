@@ -1,5 +1,19 @@
+{% extends 'main.html' %}
+
+{% block cssstart %}
+<style>
+    main{
+        background-image: url("esquerda-e-direita.jpg") !important
+    }
+</style>
+{%endblock %}
+
+{% block start %}
+
 <header>
-    <section id="login"></section>
+    <section id="login">
+        <a href="login.html">login/sigin</a>
+    </section>
 </header>
 <main>
     <img src="" alt="">
@@ -9,3 +23,5 @@
     </section>
     <img src="" alt="">
 </main>
+
+{% endblock %}
